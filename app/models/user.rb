@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include ActiveModel::Validations
+
   has_many :appointments
   has_many :clients
   has_many :gyms

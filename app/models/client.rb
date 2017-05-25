@@ -1,4 +1,6 @@
 class Client < ApplicationRecord
+  include ActiveModel::Validations
+
   has_many :appointments
   has_many :gyms, through: :appointments
   belongs_to :user
