@@ -8,7 +8,7 @@ class CreateClients < ActiveRecord::Migration[5.0]
       t.integer :weight
       t.string  :goal
       t.integer :weight_change
-      t.integer :user_id
+      t.references :user, foreign_key: true
     end
   end
 end
