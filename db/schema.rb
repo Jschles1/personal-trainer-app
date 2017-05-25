@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525014153) do
+ActiveRecord::Schema.define(version: 20170525015404) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20170525014153) do
     t.integer "weight_change"
     t.integer "user_id"
     t.index ["user_id"], name: "index_clients_on_user_id"
+  end
+
+  create_table "gyms", force: :cascade do |t|
+    t.string  "name"
+    t.string  "address"
+    t.string  "city"
+    t.string  "state"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_gyms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
