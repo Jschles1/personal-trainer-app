@@ -21,4 +21,10 @@ class ClientsController < ApplicationController
   def destroy
   end
 
+  private
+
+  def client_params
+    params.require(:client).permit(:name, :email, :phone, :age, :weight, :goal, :weight_change, :user_id)
+  end
+
 end
