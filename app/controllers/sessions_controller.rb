@@ -36,4 +36,20 @@ class SessionsController < ApplicationController
     end
   end
 
+  def oauth_login
+    @user = User.find_or_create_by(:uid => auth['uid']) do |u|
+      u.name = auth['info']['name']
+      u.email = auth['info']['email']
+      u.provider = auth['provider']
+      u.oauth_token = auth['credentials']['token']
+      u.oauth_expires_at = auth['credentials']['expires_at']
+    end
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to clients_path
+    else
+      # redirect to login form with errors
+    end
+  end
+
 end
