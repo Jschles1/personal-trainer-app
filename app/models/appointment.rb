@@ -3,9 +3,9 @@ class Appointment < ApplicationRecord
   belongs_to :client
   belongs_to :gym
 
-  validates_datetime :date, :on => :create, :on_or_after => :today
-  validates :date, presence: true
-  validates :date, uniqueness: true
+  validates_datetime :appointment_time, :on => :create, :on_or_after => :today
+  validates :appointment_time, presence: true
+  validates :appointment_time, uniqueness: true
 
   def client_attributes=(client_attributes)
     if client_attributes[:name] != ""
