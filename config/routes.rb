@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :clients
+  resources :appointments
   resources :sessions, only: [:create]
 
   get '/signup', to: 'users#new', as: 'signup'
